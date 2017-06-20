@@ -1,3 +1,0 @@
-[submodule "album-store/src/spec"]
-	path = album-store/src/spec
-	url = git@github.com:jonfriskics/Angular-AlbumStoreProductPageTests.git
