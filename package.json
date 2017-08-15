@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --watch=false --tags $tags",
+    "test": "ng test --single-run --part $part",
     "mocha-spec": "./node_modules/.bin/mocha ./src/spec/node-specs/ --reporter spec || true",
     "mocha-json": "./node_modules/.bin/mocha ./src/spec/node-specs/ --reporter json || true",
     "karma-spec": "ng test --config karma.conf.js --single-run",

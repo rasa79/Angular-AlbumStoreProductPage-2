@@ -2,7 +2,7 @@
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 
 const argv = require('minimist')(process.argv.slice(2)),
-  tags = (argv.tags !== true) && argv.tags;
+  part = (argv.part !== true) && argv.part;
 
 module.exports = function (config) {
   config.set({
@@ -17,7 +17,7 @@ module.exports = function (config) {
       require('@angular/cli/plugins/karma')
     ],
     client:{
-      args: [tags],
+      args: [part],
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     files: [

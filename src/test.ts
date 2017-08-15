@@ -15,7 +15,7 @@ import {
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
 declare var require: any;
-const tags = __karma__.config.args[0];
+const part = __karma__.config.args[0];
 
 // Prevent Karma from running prematurely.
 __karma__.loaded = function () {};
@@ -26,7 +26,7 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 // then we find all the tests.
-const filterRegExp = (tags) ? new RegExp(tags, 'g') : /projects\.spec\.ts$/,
+const filterRegExp = (part) ? new RegExp(part, 'g') : /projects\.spec\.ts$/,
     context = require.context('./', true, /projects\.spec\.ts$/),
     specFiles = context.keys().filter(path => filterRegExp.test(path));
 // and load the modules.
