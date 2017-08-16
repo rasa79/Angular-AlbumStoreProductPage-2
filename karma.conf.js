@@ -39,6 +39,15 @@ module.exports = function (config) {
     reporters: config.angularCli && config.angularCli.codeCoverage
               ? ['progress', 'coverage-istanbul']
               : ['spec'],
+    specReporter: {
+      maxLogLines: 1,
+      suppressErrorSummary: false,
+      suppressFailed: false,
+      suppressPassed: false,
+      suppressSkipped: false,
+      showSpecTiming: true,
+      failFast: false
+    },           
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
