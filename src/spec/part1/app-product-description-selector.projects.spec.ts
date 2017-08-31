@@ -12,6 +12,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 let productPageComponentExists = false;
 let ProductPageComponent;
+
 try {
   ProductPageComponent = require('../../app/product-page/product-page.component.ts').ProductPageComponent;
   productPageComponentExists = true;
@@ -22,37 +23,54 @@ try {
 let productDescriptionComponentExists = false;
 let ProductDescriptionComponent;
 try {
-  ProductDescriptionComponent = require('../../app/product-description/product-description.component.ts').ProductDescriptionComponent;
+  ProductDescriptionComponent = require('../../app/product-description/product-description.component.ts')
+    .ProductDescriptionComponent;
   productDescriptionComponentExists = true;
 } catch (e) {
   productDescriptionComponentExists = false;
 }
 
 describe('ProductPageComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [AppModule, RouterTestingModule.withRoutes([])],
-    }).compileComponents();
-  }));
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [AppModule, RouterTestingModule.withRoutes([])]
+      }).compileComponents();
+    })
+  );
 
-  it(`should contain the app-product-description element @app-product-description-selector`, async(() => {
-    expect(productPageComponentExists).toBe(true);
-    expect(productDescriptionComponentExists).toBe(true);
+  it(
+    `should contain the app-product-description element @app-product-description-selector`,
+    async(() => {
+      since('Here goes a sample custom message to our users, but this test is passing')
+        .expect(productPageComponentExists)
+        .toBe(true);
 
-    const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
-    ProductPageFixture.detectChanges();
+      since('The second expect is the failing expect')
+        .expect(productDescriptionComponentExists)
+        .toBe(true);
 
-    expect(ProductPageFixture.nativeElement.querySelector('app-product-description'));
-  }));
+      const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
+      ProductPageFixture.detectChanges();
 
-  it(`should contain the app-product-description element as a child of the first element with a class of row @app-product-description-selector`, async(() => {
-    expect(productPageComponentExists).toBe(true);
-    expect(productDescriptionComponentExists).toBe(true);
+      since('The third expect is not throwing an error').expect(
+        ProductPageFixture.nativeElement.querySelector('app-product-description')
+      );
+    })
+  );
 
-    const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
-    ProductPageFixture.detectChanges();
-    
-    expect(ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description').nodeName).toBe('APP-PRODUCT-DESCRIPTION');
-  }));
+  it(
+    `should contain the app-product-description element as a child of the first element with a class of row @app-product-description-selector`,
+    async(() => {
+      expect(productPageComponentExists).toBe(true);
+      expect(productDescriptionComponentExists).toBe(true);
 
+      const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
+      ProductPageFixture.detectChanges();
+
+      expect(
+        ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description').nodeName
+      ).toBe('APP-PRODUCT-DESCRIPTION');
+    })
+  );
 });
