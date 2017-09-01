@@ -46,6 +46,7 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
     singleRun: false,
     jsonResultReporter: {
+      outputFile: 'karma-result.json',
       isSynchronous: true
     }
   });
