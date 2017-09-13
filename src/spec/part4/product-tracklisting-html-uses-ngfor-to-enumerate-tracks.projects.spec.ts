@@ -78,7 +78,7 @@ describe('ProductTracklisting', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should use ngFor to enumerate through each track in a ul tag @product-tracklisting-html-uses-ngfor-to-enumerate-tracks`, async(() => {
+  it(`should use ngFor to enumerate through each track in an li tag @product-tracklisting-html-uses-ngfor-to-enumerate-tracks`, async(() => {
     expect(productTracklistingComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
@@ -93,7 +93,7 @@ describe('ProductTracklisting', () => {
 
     let comments = findComments(ProductTracklistingFixture.nativeElement);
 
-    expect(ProductTracklistingFixture.nativeElement.querySelectorAll('div.tracklisting ul').length).toBeGreaterThan(1);
+    expect(ProductTracklistingFixture.nativeElement.querySelectorAll('div.tracklisting ul li').length).toBeGreaterThan(1);
     expect(comments.length).toBeGreaterThan(0);
 
     let containsBinding = 0;    
