@@ -78,7 +78,7 @@ describe('ProductList', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should use ngFor to enumerate through each product in a ul tag @product-list-html-uses-ngfor-to-enumerate-products`, async(() => {
+  it(`should use ngFor to enumerate through each product in an li tag @product-list-html-uses-ngfor-to-enumerate-products`, async(() => {
     expect(productListComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
@@ -93,7 +93,7 @@ describe('ProductList', () => {
 
     let comments = findComments(ProductListFixture.nativeElement);
 
-    expect(ProductListFixture.nativeElement.querySelectorAll('ul').length).toEqual(2);
+    expect(ProductListFixture.nativeElement.querySelectorAll('li').length).toEqual(2);
     expect(comments.length).toEqual(1);
   }));
 
