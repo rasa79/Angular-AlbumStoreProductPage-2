@@ -12,7 +12,7 @@ try {
 describe('AppComponent', () => {
 
   it(`should create the product description component @product-description-component-created`, async(() => {
-    expect(productDescriptionComponentExists).toBe(true);
+    since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
   }));
 
 });

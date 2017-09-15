@@ -33,21 +33,21 @@ describe('ProductDescription', () => {
   }));
 
   it('should have moved the description div out of the product-page component @product-description-html-moved', async(() => {
-    expect(productPageComponentExists).toBe(true);
-    expect(productDescriptionComponentExists).toBe(true);
+    since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
+    since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 
     const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
 
-    expect(ProductPageFixture.nativeElement.querySelector('div.row > div.description')).toBeNull();
+    since('It looks like the ProductPageComponent still contains a `div` tag with a class of `description` - have you tried moving it yet?').expect(ProductPageFixture.nativeElement.querySelector('div.row > div.description')).toBeNull();
   }));
 
   it(`should have moved the description div into the product-description component @product-description-html-moved`, async(() => {
-    expect(productPageComponentExists).toBe(true);
-    expect(productDescriptionComponentExists).toBe(true);
+    since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
+    since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 
     const ProductDescriptionFixture = TestBed.createComponent(ProductDescriptionComponent);
 
-    expect(ProductDescriptionFixture.nativeElement.querySelector('div.description')).not.toBeNull();
+    since('The ProductDescriptionComponent\'s HTML file doesn\'t contain a `div` tag with a class of `description` - have you moved it over from the ProductPageComponent yet?').expect(ProductDescriptionFixture.nativeElement.querySelector('div.description')).not.toBeNull();
   }));
     
 });

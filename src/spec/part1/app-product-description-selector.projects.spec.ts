@@ -36,23 +36,23 @@ describe('ProductPageComponent', () => {
   }));
 
   it(`should contain the app-product-description element @app-product-description-selector`, async(() => {
-    expect(productPageComponentExists).toBe(true);
-    expect(productDescriptionComponentExists).toBe(true);
+    since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
+    since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 
     const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
     ProductPageFixture.detectChanges();
 
-    expect(ProductPageFixture.nativeElement.querySelector('app-product-description'));
+    since('You haven\'t added the `app-product-description` selector yet.').expect(ProductPageFixture.nativeElement.querySelector('app-product-description'));
   }));
 
   it(`should contain the app-product-description element as a child of the first element with a class of row @app-product-description-selector`, async(() => {
-    expect(productPageComponentExists).toBe(true);
-    expect(productDescriptionComponentExists).toBe(true);
+    since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
+    since('The ProductDescriptionComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productDescriptionComponentExists).toBe(true);
 
     const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
     ProductPageFixture.detectChanges();
     
-    expect(ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description').nodeName).toBe('APP-PRODUCT-DESCRIPTION');
+    since('You haven\'t added the `app-product-description` selector in the right spot in the ProductPageComponent.').expect(ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description').nodeName).toBe('APP-PRODUCT-DESCRIPTION');
   }));
 
 });

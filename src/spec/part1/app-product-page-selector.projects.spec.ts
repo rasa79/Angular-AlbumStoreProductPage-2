@@ -25,7 +25,7 @@ describe('AppComponent', () => {
   }));
 
   it(`should contain the app-product-page element @app-product-page-selector`, async(() => {
-    expect(productPageComponentExists).toBe(true);
+    since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageComponentExists).toBe(true);
 
     const fixture = TestBed.createComponent(AppComponent);
     const childNodes = fixture.debugElement.childNodes;
@@ -46,7 +46,7 @@ describe('AppComponent', () => {
     });
 
     if (!routerOutletFound && !productListFound) {
-      expect(productPageFound).toBe(1);
+      since('We couldn\'t find the ProductPageComponent - are you sure you added the right selector to the AppComponent?').expect(productPageFound).toBe(1);
     }
   }));
 

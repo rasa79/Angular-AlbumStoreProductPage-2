@@ -16,16 +16,16 @@ describe('ProductDescriptionComponent', () => {
 
   it(`should have CSS that contains an img selector @product-description-component-css2`, async(() => {
     let parsed = CSSOM.parse(productDescriptionCssFile);
-    expect(_.find(parsed.cssRules, {selectorText: 'img'})).not.toBeUndefined();
+    since('There isn\'t an image tag selector in the ProductDescriptionComponent\'s CSS file right now.').expect(_.find(parsed.cssRules, {selectorText: 'img'})).not.toBeUndefined();
   }));
 
   it(`should have CSS with a rule setting the width to 100% on the img selector @product-description-component-css2`, async(() => {
     let parsed = CSSOM.parse(productDescriptionCssFile);
     let imgRule = _.find(parsed.cssRules, { selectorText: 'img' })
 
-    expect(imgRule).not.toBeUndefined();
-    expect(imgRule.style.parentRule.selectorText).toBe('img');
-    expect(imgRule.style['width']).toBe('100%');
+    since('There isn\'t an image tag selector in the ProductDescriptionComponent\'s CSS file right now.').expect(imgRule).not.toBeUndefined();
+    since('There isn\'t an image tag selector in the ProductDescriptionComponent\'s CSS file right now.').expect(imgRule.style.parentRule.selectorText).toBe('img');
+    since('Your image tag selector doesn\'t have a `width` property that\'s equal to `100%`.').expect(imgRule.style['width']).toBe('100%');
   }));
   
 });
