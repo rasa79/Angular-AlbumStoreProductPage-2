@@ -16,7 +16,7 @@ describe('ProductTracklisting', () => {
 
   it(`should have CSS that contains a .tracklisting selector @product-tracklisting-component-css1`, async(() => {
     let parsed = CSSOM.parse(productTracklistingCssFile);
-    expect(_.find(parsed.cssRules, {selectorText: '.tracklisting'})).not.toBeUndefined();
+    since('There isn\'t a `.tracklisting` selector in the ProductTracklistingComponent\'s CSS file right now.').expect(_.find(parsed.cssRules, {selectorText: '.tracklisting'})).not.toBeUndefined();
   }));
 
   it(`should have CSS with a rule setting the font-size to 16px and the padding-top to 10px on the .tracklisting selector @product-tracklisting-component-css1`, async(() => {
@@ -24,16 +24,16 @@ describe('ProductTracklisting', () => {
 
     let tRule = _.find(parsed.cssRules, { selectorText: '.tracklisting' })
 
-    expect(tRule).not.toBeUndefined();
-    expect(tRule.style.parentRule.selectorText).toBe('.tracklisting');
-    expect(tRule.style['font-size']).toBe('16px');
+    since('There isn\'t a `.tracklisting` selector in the ProductTracklistingComponent\'s CSS file right now.').expect(tRule).not.toBeUndefined();
+    since('There isn\'t a `.tracklisting` selector in the ProductTracklistingComponent\'s CSS file right now.').expect(tRule.style.parentRule.selectorText).toBe('.tracklisting');
+    since('Your `.tracklisting` selector doesn\'t have a `font-size` property that\'s equal to `16px`.').expect(tRule.style['font-size']).toBe('16px');
     if (tRule.style['padding-top']) {
-      expect(tRule.style['padding-top']).toBe('10px');
+      since('Your `.tracklisting` selector isn\'t setting the top padding to be `10px`.').expect(tRule.style['padding-top']).toBe('10px');
     } else if (tRule.style['padding']) {
       let padding = tRule.style['padding'];
-      expect(tRule.style['padding']).toBe('10px 0 0 0');
+      since('Your `.tracklisting` selector isn\'t setting the top padding to be `10px`.').expect(tRule.style['padding']).toBe('10px 0 0 0');
     } else {
-      expect(1).toBe(0);
+      since('It doesn\'t look like you\'re setting the padding property in your `.tracklisting` selector').expect(1).toBe(0);
     }
   }));
   

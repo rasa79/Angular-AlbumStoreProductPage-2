@@ -12,7 +12,7 @@ try {
 describe('Project', () => {
 
   it(`should create the product tracklisting component @product-tracklisting-component-created`, async(() => {
-    expect(productTracklistingComponentExists).toBe(true);
+    since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingComponentExists).toBe(true);
   }));
 
 });

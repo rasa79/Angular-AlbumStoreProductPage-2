@@ -79,7 +79,7 @@ describe('ProductTracklisting', () => {
   }));
 
   it(`should use ngFor to enumerate through each track in an li tag @product-tracklisting-html-uses-ngfor-to-enumerate-tracks`, async(() => {
-    expect(productTracklistingComponentExists).toBe(true);
+    since('The ProductTracklistingComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productTracklistingComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
@@ -93,8 +93,8 @@ describe('ProductTracklisting', () => {
 
     let comments = findComments(ProductTracklistingFixture.nativeElement);
 
-    expect(ProductTracklistingFixture.nativeElement.querySelectorAll('div.tracklisting ul li').length).toBeGreaterThan(1);
-    expect(comments.length).toBeGreaterThan(0);
+    since('The ProductTracklistingComponent doesn\'t have an unordered list with multiple list items.  Have you tried adding the `ngFor` directive to the `li` tag in the template yet?').expect(ProductTracklistingFixture.nativeElement.querySelectorAll('div.tracklisting ul li').length).toBeGreaterThan(1);
+    since('The ProductTracklistingComponent doesn\'t have an unordered list with multiple list items.  Have you tried adding the `ngFor` directive to the `li` tag in the template yet?').expect(comments.length).toBeGreaterThan(0);
 
     let containsBinding = 0;    
     if (comments.length > 0) {
@@ -104,7 +104,7 @@ describe('ProductTracklisting', () => {
         }
       });
     }
-    expect(containsBinding).toBe(1);
+    since('The ProductTracklistingComponent has multiple list items, but it doesn\'t look like you\'re using the `ngFor` directive.').expect(containsBinding).toBe(1);
   }));
 
 });
