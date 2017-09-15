@@ -78,7 +78,7 @@ describe('ProductDescription', () => {
     const ProductDescriptionFixture = TestBed.createComponent(ProductDescriptionComponent);
     ProductDescriptionFixture.detectChanges();
 
-    expect(ProductDescriptionFixture.debugElement.nativeElement.querySelector('img').getAttribute('src')).toEqual(json.album.coverImage);
+    since('The cover image in the ProductDescriptionComponent\'s HTML does not match the cover image from the JSON response.').expect(ProductDescriptionFixture.debugElement.nativeElement.querySelector('img').getAttribute('src')).toEqual(json.album.coverImage);
 
     let htmlString = ""
     try {
@@ -89,9 +89,9 @@ describe('ProductDescription', () => {
       const parser = new DOMParser();
       const htmlDoc = parser.parseFromString(htmlString, 'text/xml');
       const re = /{{\s*albumInfo\?\.album\.coverImage\s*}}/
-      expect(htmlDoc.querySelector('img').getAttribute('src').match(re)).toEqual(jasmine.any(Array));
+      since('We\'d like you to query the albumInfo property directly for the cover image, and we\'re not seeing that you\'re doing that.').expect(htmlDoc.querySelector('img').getAttribute('src').match(re)).toEqual(jasmine.any(Array));
     } else {
-      expect(0).toBe(1);
+      since('We\'d like you to query the albumInfo property directly for the cover image, and we\'re not seeing that you\'re doing that.').expect(0).toBe(1);
     }
     
   }));

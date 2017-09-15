@@ -58,10 +58,10 @@ describe('ProductService', () => {
       connection.mockRespond(new Response(options));
     });
     product_service.getAlbum(null).subscribe((response) => {
-      expect(response._body).toBeUndefined();
-      expect(response.id).toEqual(1);
-      expect(response.artist).toEqual('The Prependers');
-      expect(response.album.name).toEqual('Opacity Zero');
+      since('It looks like you\'re not returning the getAlbum method\'s response as JSON.').expect(response._body).toBeUndefined();
+      since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.id).toEqual(1);
+      since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.artist).toEqual('The Prependers');
+      since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.album.name).toEqual('Opacity Zero');
     }
     );
   }));

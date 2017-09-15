@@ -78,7 +78,7 @@ describe('ProductDescription', () => {
     const ProductDescriptionFixture = TestBed.createComponent(ProductDescriptionComponent);
     ProductDescriptionFixture.detectChanges();
 
-    expect(ProductDescriptionFixture.debugElement.nativeElement.querySelector('.album-release-date').innerText).toEqual(json.album.releaseDate);
+    since('The release date in the ProductDescriptionComponent\'s HTML does not match the album name from the JSON response.').expect(ProductDescriptionFixture.debugElement.nativeElement.querySelector('.album-release-date').innerText).toEqual(json.album.releaseDate);
 
     let htmlString = ""
     try {
@@ -89,9 +89,9 @@ describe('ProductDescription', () => {
       const parser = new DOMParser();
       const htmlDoc = parser.parseFromString(htmlString, 'text/xml');
       const re = /{{\s*albumInfo\?\.album\.releaseDate\s*}}/
-      expect(htmlDoc.querySelector('.album-release-date').textContent.match(re)).toEqual(jasmine.any(Array));
+      since('We\'d like you to query the albumInfo property directly for the release date, and we\'re not seeing that you\'re doing that.').expect(htmlDoc.querySelector('.album-release-date').textContent.match(re)).toEqual(jasmine.any(Array));
     } else {
-      expect(0).toBe(1);
+      since('We\'d like you to query the albumInfo property directly for the release date, and we\'re not seeing that you\'re doing that.').expect(0).toBe(1);
     }
 
   }));

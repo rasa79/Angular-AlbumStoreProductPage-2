@@ -49,8 +49,8 @@ describe('ProductService', () => {
 
   it(`should return contents of _albumUrl when getAlbum() method called @product-service-getalbum-method-returns-album-json`, async(() => {
     mock_backend.connections.subscribe((connection: MockConnection) => {
-      expect(connection.request.url).toEqual('../assets/album.json');
-      expect(connection.request.method).toEqual(0);
+      since('It looks like the `getAlbum` method is not requesting the contents of the `album.json` file.').expect(connection.request.url).toEqual('../assets/album.json');
+      since('It looks like the `getAlbum` method is not sending a `GET` request.').expect(connection.request.method).toEqual(0);
       let options = new ResponseOptions({});
       connection.mockRespond(new Response(options));
     });

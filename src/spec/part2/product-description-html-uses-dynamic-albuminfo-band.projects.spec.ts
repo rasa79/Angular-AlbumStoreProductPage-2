@@ -78,7 +78,7 @@ describe('ProductDescription', () => {
     const ProductDescriptionFixture = TestBed.createComponent(ProductDescriptionComponent);
     ProductDescriptionFixture.detectChanges();
 
-    expect(ProductDescriptionFixture.debugElement.nativeElement.querySelector('.band-name').innerText).toEqual(json.artist);
+    since('The artist name in the ProductDescriptionComponent\'s HTML does not match the artist name from the JSON response.').expect(ProductDescriptionFixture.debugElement.nativeElement.querySelector('.band-name').innerText).toEqual(json.artist);
 
     let htmlString = ""
     try {
@@ -89,9 +89,9 @@ describe('ProductDescription', () => {
       const parser = new DOMParser();
       const htmlDoc = parser.parseFromString(htmlString, 'text/xml');
       const re = /{{\s*albumInfo\?\.artist\s*}}/
-      expect(htmlDoc.querySelector('.band-name').textContent.match(re)).toEqual(jasmine.any(Array));  
+      since('We\'d like you to query the albumInfo property directly for the artist name, and we\'re not seeing that you\'re doing that.').expect(htmlDoc.querySelector('.band-name').textContent.match(re)).toEqual(jasmine.any(Array));  
     } else {
-      expect(0).toBe(1);
+      since('We\'d like you to query the albumInfo property directly for the artist name, and we\'re not seeing that you\'re doing that.').expect(0).toBe(1);
     }
     
   }));
