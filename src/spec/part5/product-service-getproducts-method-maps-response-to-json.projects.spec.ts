@@ -58,14 +58,14 @@ describe('ProductService', () => {
       connection.mockRespond(new Response(options));
     });
     product_service.getProducts().subscribe((response) => {
-      expect(response._body).toBeUndefined();
-      expect(response.length).toEqual(2);
-      expect(response[0].id).toEqual(1);
-      expect(response[0].artistName).toEqual('The Prependers');
-      expect(response[0].albumName).toEqual('Opacity Zero');
-      expect(response[1].id).toEqual(2);
-      expect(response[1].artistName).toEqual('Regular Expressionists');
-      expect(response[1].albumName).toEqual('Top, Right, Bottom, Left');
+      since('It looks like you\'re not returning the getProducts method\'s response as JSON.').expect(response._body).expect(response._body).toBeUndefined();
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.length).toEqual(2);
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[0].id).toEqual(1);
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[0].artistName).toEqual('The Prependers');
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[0].albumName).toEqual('Opacity Zero');
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[1].id).toEqual(2);
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[1].artistName).toEqual('Regular Expressionists');
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[1].albumName).toEqual('Top, Right, Bottom, Left');
     }
     );
   }));

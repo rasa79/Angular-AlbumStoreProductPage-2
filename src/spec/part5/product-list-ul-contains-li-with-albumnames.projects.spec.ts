@@ -79,7 +79,7 @@ describe('ProductList', () => {
   }));
 
   it(`should have an li element that contains the album name @product-list-ul-contains-li-with-albumnames`, async(() => {
-    expect(productListComponentExists).toBe(true);
+    since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
@@ -91,8 +91,8 @@ describe('ProductList', () => {
     const ProductListFixture = TestBed.createComponent(ProductListComponent);
     ProductListFixture.detectChanges();
 
-    expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML = 'Eyes Alive');
-    expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML = 'Rheia');
+    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML = 'Eyes Alive');
+    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML = 'Rheia');
 
     // let comments = findComments(ProductListFixture.nativeElement);
 

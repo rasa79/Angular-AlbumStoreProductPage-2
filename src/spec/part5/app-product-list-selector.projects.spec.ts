@@ -25,7 +25,7 @@ describe('AppComponent', () => {
   }));
 
   it(`should contain the app-product-list element @app-product-list-selector`, async(() => {
-    expect(productListComponentExists).toBe(true);
+    since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
 
     const fixture = TestBed.createComponent(AppComponent);
     const childNodes = fixture.debugElement.childNodes;
@@ -44,7 +44,7 @@ describe('AppComponent', () => {
     });
 
     if (!routerOutletFound) {
-      expect(productPageFound).toBe(1);
+      since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageFound).toBe(1);
     }
   }));
 
