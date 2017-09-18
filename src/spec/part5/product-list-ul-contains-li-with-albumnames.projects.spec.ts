@@ -91,8 +91,8 @@ describe('ProductList', () => {
     const ProductListFixture = TestBed.createComponent(ProductListComponent);
     ProductListFixture.detectChanges();
 
-    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML = 'Eyes Alive');
-    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML = 'Rheia');
+    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML = 'Opacity Zero');
+    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML = 'Top, Right, Bottom, Left');
 
     // let comments = findComments(ProductListFixture.nativeElement);
 

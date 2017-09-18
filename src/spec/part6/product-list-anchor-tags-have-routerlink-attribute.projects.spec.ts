@@ -60,7 +60,7 @@ describe('ProductListComponent', () => {
   }));
 
   it(`should have anchor elements that have a routerLink attribute with the correct values @product-list-anchor-tags-have-routerlink-attribute`, async(() => {
-    expect(productListComponentExists).toBe(true);
+    since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
@@ -72,15 +72,15 @@ describe('ProductListComponent', () => {
     const ProductListFixture = TestBed.createComponent(ProductListComponent);
     ProductListFixture.detectChanges();
 
-    expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
+    since('The content of your ProductListComponent HTML list items aren\'t wrapped in anchor tags.').expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
 
     if (ProductListFixture.nativeElement.querySelectorAll('li a').length > 0) {
       
-      expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link')).toContain('product/1');
-      expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link')).toContain('product/2');
+      since('The first list item tag is missing a `routerLink` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link')).toContain('product/1');
+      since('The second list item tag is missing a `routerLink` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link')).toContain('product/2');
 
-      expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link-active')).toContain('active');
-      expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link-active')).toContain('active');
+      since('The first list item tag is missing a `routerLinkActive` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link-active')).toContain('active');
+      since('The second list item tag is missing a `routerLinkActive` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link-active')).toContain('active');
     }
 
   }));

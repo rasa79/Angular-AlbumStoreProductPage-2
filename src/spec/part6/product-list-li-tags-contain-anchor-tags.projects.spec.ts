@@ -60,7 +60,7 @@ describe('ProductListComponent', () => {
   }));
 
   it(`should have anchor elements inside of li elements that contain the album name @product-list-li-tags-contain-anchor-tags`, async(() => {
-    expect(productListComponentExists).toBe(true);
+    since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
@@ -72,10 +72,10 @@ describe('ProductListComponent', () => {
     const ProductListFixture = TestBed.createComponent(ProductListComponent);
     ProductListFixture.detectChanges();
 
-    expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
+    since('').expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
     if (ProductListFixture.nativeElement.querySelectorAll('li a').length > 0) {
-      expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].innerHTML = 'Eyes Alive');
-      expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].innerHTML = 'Rheia');
+      since('The album name in the first anchor tag of your HTML template doesn\'t match the first album name in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].innerHTML = 'Opacity Zero');
+      since('The album name in the second anchor tag of your HTML template doesn\'t match the second album name in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].innerHTML = 'Top, Right, Bottom, Left');
     }
 
   }));

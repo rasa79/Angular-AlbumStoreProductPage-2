@@ -23,7 +23,7 @@ describe('AppComponent', () => {
 
   it('should only contain a single tag named router-outlet @app-component-html-uses-router-outlet', async(() => {
     const AppComponentFixture = TestBed.createComponent(AppComponent);
-    expect(AppComponentFixture.nativeElement.querySelector('router-outlet')).not.toBeNull();
+    since('There\'s currently no `router-outlet` tag in the AppComponent HTML file').expect(AppComponentFixture.nativeElement.querySelector('router-outlet')).not.toBeNull();
   }));
 
 });
