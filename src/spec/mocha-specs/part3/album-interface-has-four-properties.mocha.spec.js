@@ -1,13 +1,19 @@
 let fs = require('fs');
 let expect = require('chai').expect
+let assert = require('chai').assert
 
 describe('Album Interface', function () {
   it(`should have name property of type string @album-interface-has-four-properties`, function () {
-    let file = fs.readFileSync(__dirname + '/../../app/album.ts').toString();
+    let file
+    try {
+      file = fs.readFileSync(__dirname + '/../../../app/album.ts').toString();
+    } catch (e) {
+      assert(false, "The Album interface doesn't exist yet.")
+    }
     let re = /export\s+interface\s+Album\s*\{\s*([\w\s\:\;\[\]]+)\s*\}/
     let match = file.match(re);
-    expect(match).to.be.an('array');
-
+    assert(Array.isArray(match) && match != null, "There's an `album.ts` file, but it doesn't export an interface named `Album`");
+    
     let arr = match[1].split('\n');
     for (let i = 0; i < arr.length; i++) {
       arr[i] = arr[i].trim();
@@ -33,15 +39,20 @@ describe('Album Interface', function () {
         }
       }
     }
-    expect(nameKeyFound).is.true;
-    expect(nameValueFound).is.true;
+    assert(nameKeyFound, "The Album Interface doesn't define a property named `name`");
+    assert(nameValueFound, "The Album Interface's `name` property isn't typed as `string`");
   });
 
   it(`should have releaseDate property of type string @album-interface-has-four-properties`, function () {
-    let file = fs.readFileSync(__dirname + '/../../app/album.ts').toString();
+    let file
+    try {
+      file = fs.readFileSync(__dirname + '/../../../app/album.ts').toString();
+    } catch (e) {
+      assert(false, "The Album interface doesn't exist yet.")
+    }
     let re = /export\s+interface\s+Album\s*\{\s*([\w\s\:\;\[\]]+)\s*\}/
     let match = file.match(re);
-    expect(match).to.be.an('array');
+    assert(Array.isArray(match) && match != null, "There's an `album.ts` file, but it doesn't export an interface named `Album`");
 
     let arr = match[1].split('\n');
     for (let i = 0; i < arr.length; i++) {
@@ -68,15 +79,20 @@ describe('Album Interface', function () {
         }
       }
     }
-    expect(releaseDateKeyFound).is.true;
-    expect(releaseDateValueFound).is.true;
+    assert(releaseDateKeyFound, "The Album Interface doesn't define a property named `releaseDate`");
+    assert(releaseDateValueFound, "The Album Interface's `releaseDate` property isn't typed as `string`");
   });
 
   it(`should have coverImage property of type string @album-interface-has-four-properties`, function () {
-    let file = fs.readFileSync(__dirname + '/../../app/album.ts').toString();
+    let file
+    try {
+      file = fs.readFileSync(__dirname + '/../../../app/album.ts').toString();
+    } catch (e) {
+      assert(false, "The Album interface doesn't exist yet.")
+    }
     let re = /export\s+interface\s+Album\s*\{\s*([\w\s\:\;\[\]]+)\s*\}/
     let match = file.match(re);
-    expect(match).to.be.an('array');
+    assert(Array.isArray(match) && match != null, "There's an `album.ts` file, but it doesn't export an interface named `Album`");
 
     let arr = match[1].split('\n');
     for (let i = 0; i < arr.length; i++) {
@@ -103,14 +119,19 @@ describe('Album Interface', function () {
         }
       }
     }
-    expect(coverImageKeyFound).is.true;
-    expect(coverImageValueFound).is.true;
+    assert(coverImageKeyFound, "The Album Interface doesn't define a property named `coverImage`");
+    assert(coverImageValueFound, "The Album Interface's `coverImage` property isn't typed as `string`");
   });
   it(`should have tracks property of type Track[] @album-interface-has-four-properties`, function () {
-    let file = fs.readFileSync(__dirname + '/../../app/album.ts').toString();
+    let file
+    try {
+      file = fs.readFileSync(__dirname + '/../../../app/album.ts').toString();
+    } catch (e) {
+      assert(false, "The Album interface doesn't exist yet.")
+    }
     let re = /export\s+interface\s+Album\s*\{\s*([\w\s\:\;\[\]]+)\s*\}/
     let match = file.match(re);
-    expect(match).to.be.an('array');
+    assert(Array.isArray(match) && match != null, "There's an `album.ts` file, but it doesn't export an interface named `Album`");
 
     let arr = match[1].split('\n');
     for (let i = 0; i < arr.length; i++) {
@@ -137,7 +158,7 @@ describe('Album Interface', function () {
         }
       }
     }
-    expect(tracksKeyFound).is.true;
-    expect(tracksValueFound).is.true;
+    assert(tracksKeyFound, "The Album Interface doesn't define a property named `tracks`");
+    assert(tracksValueFound, "The Album Interface's `tracks` property isn't typed as `Track[]`");
   });
 });
