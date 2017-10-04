@@ -10,7 +10,7 @@ describe('ProductDescription', function() {
     } catch (e) {
       assert(false, "ProductDescriptionComponent doesn't exist yet.")
     }
-    let re = /ngOnInit\(\s*\)\s*\{\s*([\w\s\(\)\.\_\=\>]+)\s*\}/
+    let re = /ngOnInit\(\s*\)\s*\{\s*([\w\s\(\)\.\_\=\>]+)\;?\s*\}/
     let match = file.match(re);
     assert(Array.isArray(match), "The ProductDescription `ngOnInit()` method body doesn't contain anything.")
 
