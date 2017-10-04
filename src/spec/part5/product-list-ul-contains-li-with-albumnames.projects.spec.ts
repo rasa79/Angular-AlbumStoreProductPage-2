@@ -93,8 +93,8 @@ describe('ProductList', () => {
 
     debugger
 
-    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML).toEqual('Opacity Zero');
-    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML).toEqual('Top, Right, Bottom, Left');
+    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML).toContain('Opacity Zero');
+    since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML).toContain('Top, Right, Bottom, Left');
 
     // let comments = findComments(ProductListFixture.nativeElement);
 
