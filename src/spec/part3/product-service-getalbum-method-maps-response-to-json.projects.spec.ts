@@ -69,12 +69,15 @@ describe('ProductService', () => {
       });
       connection.mockRespond(new Response(options));
     });
-    product_service.getAlbum(null).subscribe((response) => {
-      since('It looks like you\'re not returning the getAlbum method\'s response as JSON.').expect(response._body).toBeUndefined();
-      since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.id).toEqual(1);
-      since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.artist).toEqual('The Prependers');
-      since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.album.name).toEqual('Opacity Zero');
-    }
-    );
+    if(product_service.getAlbum == undefined) {
+      since('The ProductService doesn\'t have a method named `getAlbum` yet').expect(0).toBe(1);
+    } else {
+      product_service.getAlbum(null).subscribe((response) => {
+        since('It looks like you\'re not returning the getAlbum method\'s response as JSON.').expect(response._body).toBeUndefined();
+        since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.id).toEqual(1);
+        since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.artist).toEqual('The Prependers');
+        since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.album.name).toEqual('Opacity Zero');
+      });
+      }
   }));
 });

@@ -66,6 +66,10 @@ describe('ProductService', () => {
       let options = new ResponseOptions({});
       connection.mockRespond(new Response(options));
     });
-    product_service.getAlbum(null).subscribe();
+    if(product_service.getAlbum == undefined) {
+      since('The ProductService doesn\'t have a method named `getAlbum` yet').expect(0).toBe(1);
+    } else {
+      product_service.getAlbum(null).subscribe();
+    }
   }));
 });
