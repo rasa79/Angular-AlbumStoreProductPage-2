@@ -3,7 +3,7 @@ let expect = require('chai').expect
 let assert = require('chai').assert
 
 describe('ProductService', function() {
-  it(`should have a private class property named albumUrl set to the correct value @product-service-has-albumurl-property`, function () {
+  it(`should have a private class property named _albumUrl set to the correct value @product-service-has-albumurl-property`, function () {
     let file
     try {
       file = fs.readFileSync(__dirname + '/../../../app/product.service.ts').toString();
