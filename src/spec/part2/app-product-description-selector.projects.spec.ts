@@ -42,7 +42,7 @@ describe('ProductPageComponent', () => {
     const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
     ProductPageFixture.detectChanges();
 
-    since('You haven\'t added the `app-product-description` selector yet.').expect(ProductPageFixture.nativeElement.querySelector('app-product-description'));
+    since('You haven\'t added the `app-product-description` selector yet.').expect(ProductPageFixture.nativeElement.querySelector('app-product-description')).not.toBe(null);
   }));
 
   it(`should contain the app-product-description element as a child of the first element with a class of row @app-product-description-selector`, async(() => {
@@ -52,7 +52,11 @@ describe('ProductPageComponent', () => {
     const ProductPageFixture = TestBed.createComponent(ProductPageComponent);
     ProductPageFixture.detectChanges();
     
-    since('You haven\'t added the `app-product-description` selector in the right spot in the ProductPageComponent.').expect(ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description').nodeName).toBe('APP-PRODUCT-DESCRIPTION');
+    if (ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description')) {
+      since('You haven\'t added the `app-product-description` selector in the right spot in the ProductPageComponent.').expect(ProductPageFixture.nativeElement.querySelector('div.row').querySelector('app-product-description').nodeName).toBe('APP-PRODUCT-DESCRIPTION');
+    } else {
+      since('You haven\'t added the `app-product-description` selector yet.').expect(0).toBe(1);
+    }
   }));
 
 });
