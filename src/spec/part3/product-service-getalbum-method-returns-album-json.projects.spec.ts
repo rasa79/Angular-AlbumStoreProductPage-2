@@ -21,16 +21,27 @@ try {
   productServiceExists = false;
 }
 
+class AProductService {
+  
+}
+
 describe('ProductService', () => {
 
   let product_service;
+  let ProvidedService;
   let mock_backend;
+
+  if(productServiceExists) {
+    ProvidedService = ProductService
+  } else {
+    ProvidedService = AProductService;
+  }
 
   beforeEach(async(() => {
   
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
-      providers: [ProductService, MockBackend, BaseRequestOptions,
+      providers: [ProvidedService, MockBackend, BaseRequestOptions,
         {
           provide: Http,
           useFactory: (mockBackend: MockBackend, defaultOptions: RequestOptions) => {
@@ -42,12 +53,13 @@ describe('ProductService', () => {
     }).compileComponents();
   }));
 
-  beforeEach(inject([ProductService, MockBackend], (productService, mockBackend) => {
-    product_service = productService;
+  beforeEach(inject([ProvidedService, MockBackend], (providedService, mockBackend) => {
+    product_service = providedService;
     mock_backend = mockBackend;
   }));
 
   it(`should return contents of _albumUrl when getAlbum() method called @product-service-getalbum-method-returns-album-json`, async(() => {
+    since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     mock_backend.connections.subscribe((connection: MockConnection) => {
       since('It looks like the `getAlbum` method is not requesting the contents of the `album.json` file.').expect(connection.request.url).toEqual('../assets/album.json');
       since('It looks like the `getAlbum` method is not sending a `GET` request.').expect(connection.request.method).toEqual(0);

@@ -38,16 +38,27 @@ try {
   productServiceExists = false;
 }
 
+class AProductService {
+  
+}
+
 describe('ProductDescription', () => {
 
   let product_service;
+  let ProvidedService;
   let mock_backend;
+
+  if(productServiceExists) {
+    ProvidedService = ProductService
+  } else {
+    ProvidedService = AProductService;
+  }
 
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
-      providers: [ProductService, MockBackend, BaseRequestOptions,
+      providers: [ProvidedService, MockBackend, BaseRequestOptions,
         {
           provide: Http,
           useFactory: (mockBackend: MockBackend, defaultOptions: RequestOptions) => {
@@ -60,12 +71,13 @@ describe('ProductDescription', () => {
     }).compileComponents();
   }));
 
-  beforeEach(inject([ProductService, MockBackend], (productService, mockBackend) => {
-    product_service = productService;
+  beforeEach(inject([ProvidedService, MockBackend], (providedService, mockBackend) => {
+    product_service = providedService;
     mock_backend = mockBackend;
   }));
 
   it(`should use album name data from the albumInfo property in the HTML template @product-description-html-uses-dynamic-albuminfo-name`, async(() => {
+    since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     expect(productDescriptionComponentExists).toBe(true);
 
     mock_backend.connections.subscribe((connection: MockConnection) => {

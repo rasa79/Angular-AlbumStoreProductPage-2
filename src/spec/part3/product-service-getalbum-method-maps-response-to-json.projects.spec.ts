@@ -23,16 +23,27 @@ try {
 
 let json = require('../../assets/album.json');
 
+class AProductService {
+  
+}
+
 describe('ProductService', () => {
 
   let product_service;
+  let ProvidedService;
   let mock_backend;
+
+  if(productServiceExists) {
+    ProvidedService = ProductService
+  } else {
+    ProvidedService = AProductService;
+  }
 
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
-      providers: [ProductService, MockBackend, BaseRequestOptions,
+      providers: [ProvidedService, MockBackend, BaseRequestOptions,
         {
           provide: Http,
           useFactory: (mockBackend: MockBackend, defaultOptions: RequestOptions) => {
@@ -45,12 +56,13 @@ describe('ProductService', () => {
     }).compileComponents();
   }));
 
-  beforeEach(inject([ProductService, MockBackend], (productService, mockBackend) => {
-    product_service = productService;
+  beforeEach(inject([ProvidedService, MockBackend], (providedService, mockBackend) => {
+    product_service = providedService;
     mock_backend = mockBackend;
   }));
 
   it(`should map the result of get request to json with rxjs map function @product-service-getalbum-method-maps-response-to-json`, async(() => {
+    since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
         body: json
