@@ -4,7 +4,7 @@ let assert = require('chai').assert
 
 describe('Track Interface', function() {
   it(`should exist @track-interface-exists`, function () {
-    expect(fs.existsSync(__dirname + '/../../../app/track.ts')).to.equal(true);
+    assert(fs.existsSync(__dirname + '/../../../app/track.ts'), "The Track interface hasn't been created yet.");
 
     let file
     try {
