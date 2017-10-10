@@ -21,29 +21,18 @@ try {
   productServiceExists = false;
 }
 
-let json = require('../../assets/album.json');
-
-class AProductService {
-  
-}
+let json = require('../../assets/products.json');
 
 describe('ProductService', () => {
 
   let product_service;
-  let ProvidedService;
   let mock_backend;
-
-  if(productServiceExists) {
-    ProvidedService = ProductService
-  } else {
-    ProvidedService = AProductService;
-  }
 
   beforeEach(async(() => {
 
     TestBed.configureTestingModule({
       imports: [AppModule, RouterTestingModule.withRoutes([])],
-      providers: [ProvidedService, MockBackend, BaseRequestOptions,
+      providers: [ProductService, MockBackend, BaseRequestOptions,
         {
           provide: Http,
           useFactory: (mockBackend: MockBackend, defaultOptions: RequestOptions) => {
@@ -53,31 +42,31 @@ describe('ProductService', () => {
           deps: [MockBackend, BaseRequestOptions]
         }
       ]
-    }).compileComponents();
+    });
   }));
 
-  beforeEach(inject([ProvidedService, MockBackend], (providedService, mockBackend) => {
-    product_service = providedService;
+  beforeEach(inject([ProductService, MockBackend], (productService, mockBackend) => {
+    product_service = productService;
     mock_backend = mockBackend;
   }));
 
-  it(`should map the result of get request to json with rxjs map function @product-service-getalbum-method-maps-response-to-json`, async(() => {
-    since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
+  it(`should map the result of get request to json with rxjs map function @product-service-getproducts-method-maps-response-to-json`, async(() => {
     mock_backend.connections.subscribe((connection: MockConnection) => {
       let options = new ResponseOptions({
         body: json
       });
       connection.mockRespond(new Response(options));
     });
-    if(product_service.getAlbum == undefined) {
-      since('The ProductService doesn\'t have a method named `getAlbum` yet').expect(0).toBe(1);
-    } else {
-      product_service.getAlbum(null).subscribe((response) => {
-        since('It looks like you\'re not returning the getAlbum method\'s response as JSON.').expect(response._body).toBeUndefined();
-        since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.id).toEqual(1);
-        since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.artist).toEqual('The Prependers');
-        since('Your `getAlbum` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.album.name).toEqual('Opacity Zero');
-      });
-      }
+    product_service.getProducts().subscribe((response) => {
+      since('It looks like you\'re not returning the getProducts method\'s response as JSON.').expect(response._body).toBeUndefined();
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response.length).toEqual(2);
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[0].id).toEqual(1);
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[0].artistName).toEqual('The Prependers');
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[0].albumName).toEqual('Opacity Zero');
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[1].id).toEqual(2);
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[1].artistName).toEqual('Regular Expressionists');
+      since('Your `getProducts` method is returning a JSON response, but not the correct JSON.  Are you sure your service class is setup correctly?').expect(response[1].albumName).toEqual('Top, Right, Bottom, Left');
+    }
+    );
   }));
 });
