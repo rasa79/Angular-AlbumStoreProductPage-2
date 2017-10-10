@@ -25,7 +25,6 @@ describe('ProductDescription', function() {
 
       let expression = variable_used_to_capture_response[1] + "\\s*\\=\\>\\s*this\\.albumInfo\\s*\\=\\s*" + variable_used_to_capture_response[1]
       let regex = new RegExp(expression, 'g')
-      console.log(regex)
 
       assert(Array.isArray(match2[1].match(regex)), "The call to `getAlbum()` in ProductDescription's `ngOnInit()` method body isn't subscribing to the response and assigning it to `this.albumInfo`.")
     } else {
