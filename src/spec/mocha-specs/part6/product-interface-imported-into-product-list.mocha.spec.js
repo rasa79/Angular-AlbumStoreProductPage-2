@@ -10,7 +10,7 @@ describe('ProductList', function() {
     } catch (e) {
       assert(false, "ProductListComponent doesn't exist yet.")
     }
-    let re = /import\s*{\s*Product\s*}\s*from\s*[\'|\"]\.\.\/product[\'|\"]\;/
+    let re = /import\s*{\s*Product\s*}\s*from\s*[\'|\"]\.\.\/product[\'|\"]\;?/
     assert(Array.isArray(file.match(re)) && file.match(re) != null, "The Product Interface hasn't been imported into the ProductListComponent yet.");
   });
 });

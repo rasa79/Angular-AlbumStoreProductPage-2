@@ -10,7 +10,7 @@ describe('ProductService', function() {
     } catch (e) {
       assert(false, "The ProductService hasn't been created yet.")
     }
-    let re = /private\s+\_albumUrl\s*(:\s*string\s*)?\=\s*[\'|\"](\.\.\/assets\/album.json)[\'|\"]\s*\;/
+    let re = /private\s+\_albumUrl\s*(:\s*string\s*)?\=\s*[\'|\"](\.\.\/assets\/album.json)[\'|\"]\s*\;?/
     let match = file.match(re);
     assert(Array.isArray(match), "The ProductService doesn't have an `_albumUrl` property with the correct definition or value.")
   });

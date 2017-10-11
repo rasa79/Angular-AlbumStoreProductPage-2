@@ -10,7 +10,7 @@ describe('Album Interface', function() {
     } catch (e) {
       assert(false, "The Album interface doesn't exist yet.");
     }
-    let re = /import\s*{([\w,\s]+)}\s*from\s*[\'|\"]\.\/track[\'|\"]\;/
+    let re = /import\s*{([\w,\s]+)}\s*from\s*[\'|\"]\.\/track[\'|\"]\;?/
     let match = file.match(re);
     assert(Array.isArray(match), "The Track interface isn't being imported in the Album interface.");
 

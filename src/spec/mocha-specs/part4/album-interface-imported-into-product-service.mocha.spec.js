@@ -10,7 +10,7 @@ describe('ProductService', function() {
     } catch (e) {
       assert(false, "The ProductService hasn't been created yet.")
     }
-    let re = /import\s*{\s*Album\s*}\s*from\s*[\'|\"]\.\/album[\'|\"]\;/
+    let re = /import\s*{\s*Album\s*}\s*from\s*[\'|\"]\.\/album[\'|\"]\;?/
     assert(Array.isArray(file.match(re)) && file.match(re) != null, "The Album Interface hasn't been imported into the ProductService yet.");
   });
 });

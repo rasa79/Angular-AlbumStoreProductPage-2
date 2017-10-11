@@ -10,7 +10,7 @@ describe('AppModule', function() {
     } catch (e) {
       assert(false, "There is no `app.module.ts` file for some strange reason.")
     }
-    let re = /import\s*{([\w,\s]+)}\s*from\s*[\'|\"]@angular\/router[\'|\"]\;/
+    let re = /import\s*{([\w,\s]+)}\s*from\s*[\'|\"]@angular\/router[\'|\"]\;?/
     let match = file.match(re);
     assert(Array.isArray(file.match(re)) && file.match(re) != null, "Nothing from `@angular/router` has been imported into the AppModule yet.")
     

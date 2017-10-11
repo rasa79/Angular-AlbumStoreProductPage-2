@@ -10,7 +10,7 @@ describe('AppModule', function() {
     } catch (e) {
       assert(false, "There is no `app.module.ts` file for some strange reason.")
     }
-    let re = /import\s*{\s*ProductService\s*}\s*from\s*[\'|\"]\.\/product\.service[\'|\"]\;/
+    let re = /import\s*{\s*ProductService\s*}\s*from\s*[\'|\"]\.\/product\.service[\'|\"]\;?/
     assert(Array.isArray(file.match(re)) && file.match(re) != null, "The ProductService hasn't been imported into the AppModule yet.")
   });
 });

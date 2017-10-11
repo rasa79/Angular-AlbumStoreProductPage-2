@@ -21,7 +21,7 @@ describe('AppModule', function() {
     } catch (e) {
       assert(false, "There is no `app.module.ts` file for some strange reason.")
     }
-    let re = /(const\s+appRoutes\s*\:\s*Routes\s*\=\s*\[(?:[\w\s\:\'\"\,\{\}\/\;]*)\]\;)\s*\@NgModule/
+    let re = /(const\s+appRoutes\s*\:\s*Routes\s*\=\s*\[(?:[\w\s\:\'\"\,\{\}\/\;]*)\]\;?)\s*\@NgModule/
     let match = file.match(re);
     assert(match != undefined, "You haven't added an appRoutes array constant of type `Routes` in the correct place.");
     

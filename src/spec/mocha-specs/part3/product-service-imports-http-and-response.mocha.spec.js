@@ -10,7 +10,7 @@ describe('ProductService', function() {
     } catch (e) {
       assert(false, "The ProductService doesn't exist yet.")
     }
-    let re = /import\s*{([\w,\s]+)}\s*from\s*[\'|\"]@angular\/http[\'|\"]\;/
+    let re = /import\s*{([\w,\s]+)}\s*from\s*[\'|\"]@angular\/http[\'|\"]\;?/
     let match = file.match(re);
     assert(Array.isArray(match), "It doesn't look like anything has been imported from the `@angular/http` module yet.");
 
