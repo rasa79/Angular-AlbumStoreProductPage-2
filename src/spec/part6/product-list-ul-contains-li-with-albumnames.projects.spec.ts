@@ -91,15 +91,10 @@ describe('ProductList', () => {
     const ProductListFixture = TestBed.createComponent(ProductListComponent);
     ProductListFixture.detectChanges();
 
-    debugger
-
+    since('The ProductListComponent doesn\'t have an unordered list with multiple list items.  Have you tried adding the `ngFor` directive to the `li` tag in the template yet?').expect(ProductListFixture.nativeElement.querySelectorAll('ul li').length).toBeGreaterThan(1);
+    
     since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[0].innerHTML).toContain('Opacity Zero');
     since('The album names in your HTML template don\'t match the album names in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('ul li')[1].innerHTML).toContain('Top, Right, Bottom, Left');
-
-    // let comments = findComments(ProductListFixture.nativeElement);
-
-    // expect(ProductListFixture.nativeElement.querySelectorAll('ul').length).toEqual(2);
-    // expect(comments.length).toEqual(1);
   }));
 
 });
