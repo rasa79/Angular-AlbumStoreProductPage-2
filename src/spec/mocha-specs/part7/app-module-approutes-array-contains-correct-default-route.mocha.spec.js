@@ -23,7 +23,8 @@ describe('AppModule', function() {
     }
     let re = /(const\s+appRoutes\s*\:\s*Routes\s*\=\s*\[(?:[\w\s\:\'\"\,\{\}\/\;]*)\]\;)\s*\@NgModule/
     let match = file.match(re);
-
+    assert(match != undefined, "You haven't added an appRoutes array constant of type `Routes` in the correct place.");
+    
     let match_trimmed = match[1].trim();
     
     let js = ts.transpile(match_trimmed)

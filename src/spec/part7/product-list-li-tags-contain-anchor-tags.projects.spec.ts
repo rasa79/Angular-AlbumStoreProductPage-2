@@ -72,7 +72,7 @@ describe('ProductListComponent', () => {
     const ProductListFixture = TestBed.createComponent(ProductListComponent);
     ProductListFixture.detectChanges();
 
-    since('').expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
+    since('There aren\'t any list items with anchor tags as children in the ProductListComponent\'s template.').expect(ProductListFixture.nativeElement.querySelectorAll('li a').length).toBe(2);
     if (ProductListFixture.nativeElement.querySelectorAll('li a').length > 0) {
       since('The album name in the first anchor tag of your HTML template doesn\'t match the first album name in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].innerHTML = 'Opacity Zero');
       since('The album name in the second anchor tag of your HTML template doesn\'t match the second album name in the `products` JSON response.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].innerHTML = 'Top, Right, Bottom, Left');
