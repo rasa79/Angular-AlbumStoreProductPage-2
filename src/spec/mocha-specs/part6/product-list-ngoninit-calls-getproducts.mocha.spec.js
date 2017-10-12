@@ -25,7 +25,6 @@ describe('ProductList', function() {
 
       let expression = variable_used_to_capture_response[1] + "\\s*\\=\\>\\s*this\\.products\\s*\\=\\s*" + variable_used_to_capture_response[1]
       let regex = new RegExp(expression, 'g')
-      console.log(regex)
 
       assert(Array.isArray(match2[1].match(regex)), "The call to `getProducts()` in ProductList's `ngOnInit()` method body isn't subscribing to the response and assigning it to `this.products`.")
     } else {

@@ -30,7 +30,6 @@ describe('AppModule', function() {
     let js = ts.transpile(match_trimmed)
     
     eval(js + "ar = appRoutes");
-    console.log(ar.length)
     
     if (ar.length > 2) {
       assert(ar[0].path == "products", "In the `appRoutes` array, the first object's `path` key is not set to `products`")
