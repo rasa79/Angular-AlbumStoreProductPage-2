@@ -47,14 +47,17 @@ describe('AppComponent', () => {
     });
 
 
-    if(!routerOutletFound) {
+    if (routerOutletFound == 0) {
+      console.log('router outlet not found');
       if(productPageFound == 1 && productListFound == 0) {
         since('The `app-product-list` tag hasn\'t replaced the `app-product-page` tag yet.').expect(productListFound).toBe(1);
       } else if(productPageFound == 0 && productListFound == 1) {
         // test should pass
+      } else {
+        since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageFound).toBe(1);        
       }
     } else {
-      since('The ProductPageComponent doesn\'t exist for some reason.').expect(productPageFound).toBe(1);
+      since('The `router-outlet` tag hasn\'t been added to the `app-component.html` file yet.').expect(routerOutletFound).toBe(1);
     }
   }));
 
