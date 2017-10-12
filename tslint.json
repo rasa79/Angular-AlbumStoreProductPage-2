@@ -14,10 +14,7 @@
     "forin": true,
     "import-blacklist": [true, "rxjs"],
     "import-spacing": true,
-    "indent": [
-      true,
-      "spaces"
-    ],
+    "indent": false,
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
@@ -51,7 +48,7 @@
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
-    "no-trailing-whitespace": true,
+    "no-trailing-whitespace": false,
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
@@ -69,9 +66,7 @@
       "single"
     ],
     "radix": true,
-    "semicolon": [
-      "always"
-    ],
+    "semicolon": false,
     "triple-equals": [
       true,
       "allow-null-check"
