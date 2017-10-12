@@ -24,9 +24,9 @@
     "karma-spec": "ng test --config tutor-karma.conf.js --single-run",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-prebuild": "npm install -g http-server",
+    "heroku-prebuild": "npm install",
     "heroku-postbuild": "ng build --prod",
-    "start": "http-server dist/"
+    "start": "node server.js"
   },
   "private": true,
   "dependencies": {
