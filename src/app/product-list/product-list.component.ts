@@ -11,7 +11,7 @@ import { Product } from '../product';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[];
+  products;
 
   constructor(private _productService: ProductService) { }
 
