@@ -46,10 +46,10 @@
     "@angular/compiler-cli": "4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "6.0.60",
+    "bootstrap": "3.3.7",
     "typescript": "2.2.0"
   },
   "devDependencies": {
-    "bootstrap": "3.3.7",
     "chai": "4.0.1",
     "codelyzer": "2.0.0",
     "cssom": "0.3.0",
