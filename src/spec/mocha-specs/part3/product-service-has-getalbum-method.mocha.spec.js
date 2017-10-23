@@ -10,7 +10,7 @@ describe('ProductService', function() {
     } catch (e) {
       assert(false, "The ProductService hasn't been created yet.");
     }
-    let re = /getAlbum\s*\(\s*id\s*:\s*number\s*\)(\s*\:\s*Observable\<Album\>\s*)?\s*\{[\s\w\.\(\)\;=><]+\}/
+    let re = /getAlbum\s*\(\s*id\s*:\s*number\s*\)(\s*\:\s*Observable\<Album\>\s*)?\s*\{[\s\w\.\:\(\)\;=><]+\}/
     let match = file.match(re);
     assert(Array.isArray(match), "The ProductService hasn't defined a `getAlbum` method yet with the correct arguments.")
   });
