@@ -32,6 +32,8 @@
 npm-debug.log
 testem.log
 /typings
+karma-result.json
+tutor-karma.conf.js
 
 # e2e
 /e2e/*.js
