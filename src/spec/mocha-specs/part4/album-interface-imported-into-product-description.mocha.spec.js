@@ -3,7 +3,7 @@ let expect = require('chai').expect
 let assert = require('chai').assert
 
 describe('ProductDescription', function() {
-  it(`should import the Album Interface @album-interface-imported-into-product-decsription`, function () {
+  it(`should import the Album Interface @album-interface-imported-into-product-description`, function () {
     let file;
     try {
       file = fs.readFileSync(__dirname + '/../../../app/product-description/product-description.component.ts').toString();

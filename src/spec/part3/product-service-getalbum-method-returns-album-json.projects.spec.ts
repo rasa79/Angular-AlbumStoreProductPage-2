@@ -60,7 +60,7 @@ describe('ProductService', () => {
     mock_backend = mockBackend;
   }));
 
-  it(`should return contents of _albumUrl when getAlbum() method called @product-service-getalbum-method-returns-album-json`, async(() => {
+  it(`should return contents of _albumUrl when getAlbum method called @product-service-getalbum-method-returns-album-json`, async(() => {
     since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     mock_backend.connections.subscribe((connection: MockConnection) => {
       since('It looks like the `getAlbum` method is not requesting the contents of the `album.json` file.').expect(connection.request.url).toEqual('../assets/album.json');
@@ -69,7 +69,7 @@ describe('ProductService', () => {
       connection.mockRespond(new Response(options));
     });
     if(product_service.getAlbum == undefined) {
-      since('The ProductService doesn\'t have a method named `getAlbum` yet').expect(0).toBe(1);
+      since('The ProductService doesn\'t have a method named `getAlbum()` yet').expect(0).toBe(1);
     } else if(product_service.getAlbum != undefined && product_service.getAlbum.subscribe == undefined) {
       let ps = product_service.getAlbum(null);
       since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._albumUrl` as a parameter').expect(product_service._http._backend.connectionsArray.length).toBeGreaterThan(0);
