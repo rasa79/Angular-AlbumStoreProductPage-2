@@ -19,8 +19,6 @@ describe('AppModule', function() {
       arr[i] = arr[i].trim();
     }
 
-    console.log(arr);
-
     assert(Array.isArray(arr) && arr.includes('RouterModule.forRoot(appRoutes)'), "The `appRoutes` array hasn't been added in the `@NgModule`'s `imports` array.");
   });
 });

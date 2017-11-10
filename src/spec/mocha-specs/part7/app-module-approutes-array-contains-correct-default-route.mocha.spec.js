@@ -24,13 +24,12 @@ describe('AppModule', function() {
     let re = /(const\s+appRoutes\s*\:\s*Routes\s*\=\s*\[(?:[\w\s\:\'\"\,\{\}\/\;]*)\]\;?)\s*\@NgModule/
     let match = file.match(re);
     assert(match != undefined, "You haven't added an appRoutes array constant of type `Routes` in the correct place.");
-    
+
     let match_trimmed = match[1].trim();
-    
+
     let js = ts.transpile(match_trimmed)
-    
+
     eval(js + "ar = appRoutes");
-    console.log(ar.length)
     
     if (ar.length > 2) {
       assert(ar[0].path == "products", "In the `appRoutes` array, the first object's `path` key is not set to `products`")
