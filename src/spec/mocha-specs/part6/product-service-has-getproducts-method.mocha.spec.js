@@ -12,6 +12,6 @@ describe('ProductService', function() {
     }
     let re = /getProducts\s*\(\s*\)(\s*\:\s*Observable\<Product\[\]\>\s*)?\s*\{[\s\w\.\:\(\)\;=><\[\]]+\}/
     let match = file.match(re);
-    assert(Array.isArray(file.match(re)) && file.match(re) != null, "The `getProducts()` method hasn't added to the ProductService.");
+    assert(Array.isArray(file.match(re)) && file.match(re) != null, "The `getProducts()` method hasn't been added to the ProductService.");
   });
 });
