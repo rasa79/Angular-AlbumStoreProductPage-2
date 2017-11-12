@@ -28,7 +28,7 @@ describe('ProductList', function() {
 
       assert(Array.isArray(match2[1].match(regex)), "The call to `getProducts()` in ProductList's `ngOnInit()` method body isn't subscribing to the response and assigning it to `this.products`.")
     } else {
-      let re2 = /this\._productService\.getProducts\(\)/
+      let re2 = /this\._productService\s*\.\s*getProducts\(\)/
       assert(match[0].match(re2), "The ProductList `ngOnInit()` method body isn't making the correct call to the ProductService's `getProducts` method.")
     }
 
