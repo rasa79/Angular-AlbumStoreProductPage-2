@@ -17,7 +17,7 @@ describe('ProductList', function() {
     let callToGetAlbum = match[1].trim();
 
     if (callToGetAlbum.includes('subscribe')) {
-      let re2 = /this\._productService\.getProducts\(\)\.subscribe\(([\w\s\=\.\>]+)\)/
+      let re2 = /this\._productService\s*\.\s*getProducts\(\)\s*\.\s*subscribe\(([\w\s\=\.\>]+)\)/
       let match2 = match[1].match(re2)
       assert(Array.isArray(match2), "The ProductList's `ngOnInit()` method body isn't chaining the correct call to subscribe onto the end of the call to `getProducts()`.")
 
