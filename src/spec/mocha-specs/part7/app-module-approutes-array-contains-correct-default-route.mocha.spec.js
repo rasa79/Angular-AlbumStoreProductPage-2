@@ -32,13 +32,13 @@ describe('AppModule', function() {
     eval(js + "ar = appRoutes");
     
     if (ar.length > 2) {
-      assert(ar[0].path == "products", "In the `appRoutes` array, the first object's `path` key is not set to `products`")
-      assert(ar[0].component.toString().match(/class ProductListComponent/), "In the `appRoutes` array, the first object's `component` key is not set to `ProductListComponent`")
-      assert(ar[1].path == "product/:id", "In the `appRoutes` array, the second object's `path` key is not set to `product/:id`")
-      assert(ar[1].component.toString().match(/class ProductPageComponent/), "In the `appRoutes` array, the second object's `component` key is not set to `ProductPageComponent`")
-      assert(ar[2].path == "", "In the `appRoutes` array, the third object's `path` key is not set to `\"\"`")
-      assert(ar[2].redirectTo == "products", "In the `appRoutes` array, the third object's `redirectTo` key is not set to `products`")
-      assert(ar[2].pathMatch == "full", "In the `appRoutes` array, the third object's `pathMatch` key is not set to `full`")
+      assert(ar[0].path == "products", "In the `appRoutes` array, the first object's `path` key is not set to `products`.")
+      assert(ar[0].component.toString().match(/class ProductListComponent/), "In the `appRoutes` array, the first object's `component` key is not set to `ProductListComponent`.")
+      assert(ar[1].path == "product/:id", "In the `appRoutes` array, the second object's `path` key is not set to `product/:id`.")
+      assert(ar[1].component.toString().match(/class ProductPageComponent/), "In the `appRoutes` array, the second object's `component` key is not set to `ProductPageComponent`.")
+      assert(ar[2].path == "", "In the `appRoutes` array, the third object's `path` key is not set to `\"\"`.")
+      assert(ar[2].redirectTo == "products", "In the `appRoutes` array, the third object's `redirectTo` key is not set to `products`.")
+      assert(ar[2].pathMatch == "full", "In the `appRoutes` array, the third object's `pathMatch` key is not set to `full`.")
     } else {
       assert(false, "You haven't added a third object with keys and values that represents a default route to the `appRoutes` array yet.");
     }

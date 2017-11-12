@@ -50,7 +50,7 @@ describe('ProductDescriptionComponent', () => {
       } else if (pRule.style['font-family'] != undefined) {
         fontRule = pRule.style['font-family'];
       } else {
-        since('Your paragraph selector doesn\'t have a `font-family` property').expect(0).toBe(1);
+        since('Your paragraph selector doesn\'t have a `font-family` property.').expect(0).toBe(1);
       }
 
       if (fontRule != undefined) {

@@ -14,6 +14,6 @@ describe('Product Interface', function() {
     }
 
     let re = /export\s+interface\s+Product/
-    assert(Array.isArray(file.match(re)) && file.match(re) != null, "There's a `product.ts` file, but it doesn't export an interface named `Product`");
+    assert(Array.isArray(file.match(re)) && file.match(re) != null, "There's a `product.ts` file, but it doesn't export an interface named `Product`.");
   });
 });

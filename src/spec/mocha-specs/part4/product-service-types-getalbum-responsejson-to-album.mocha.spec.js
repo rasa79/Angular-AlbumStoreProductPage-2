@@ -15,6 +15,6 @@ describe('ProductService getAlbum Method', function() {
     assert(Array.isArray(file.match(re)), "The `getAlbum` method isn't returning the correct response.");
     
     let responseJsonPart = match[1];
-    assert(responseJsonPart.includes('<Album>'), "You're not asserting that the type of `response.json()` is `Album`");
+    assert(responseJsonPart.includes('<Album>'), "You're not asserting that the type of `response.json()` is `Album`.");
   });
 });

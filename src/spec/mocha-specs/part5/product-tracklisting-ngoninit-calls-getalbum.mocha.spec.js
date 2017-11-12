@@ -19,7 +19,7 @@ describe('ProductTracklisting', function() {
     if (callToGetAlbum.includes('subscribe')) {
       let re2 = /this\._productService\.getAlbum\(1\)\.subscribe\(([\w\s\=\.\>]+)\)/
       let match2 = match[1].match(re2)
-      assert(Array.isArray(match2), "The ProductTracklisting's `ngOnInit()` method body isn't chaining the correct call to subscribe onto the end of the call to `getAlbum()`")
+      assert(Array.isArray(match2), "The ProductTracklisting's `ngOnInit()` method body isn't chaining the correct call to subscribe onto the end of the call to `getAlbum()`.")
 
       let variable_used_to_capture_response = match2[1].match(/\s*(\w+)\s*\=/);
 

@@ -38,7 +38,7 @@ describe('ProductTracklisting', () => {
         let padding = tRule.style['padding'];
         since('Your `.tracklisting` selector isn\'t setting the top padding to be `10px`.').expect(tRule.style['padding']).toBe('10px 0 0 0');
       } else {
-        since('It doesn\'t look like you\'re setting the padding property in your `.tracklisting` selector').expect(1).toBe(0);
+        since('It doesn\'t look like you\'re setting the padding property in your `.tracklisting` selector.').expect(1).toBe(0);
       }
     }
   }));

@@ -12,6 +12,6 @@ describe('AppModule', function() {
     }
     let re = /const\s+appRoutes\s*\:\s*Routes\s*\=\s*\[[\w\s\:\'\"\,\{\}\/\;]*\]\;?\s*\@NgModule/
     let match = file.match(re);
-    assert(Array.isArray(match), "There is currently no array of type Routes declared before `@NgModule`");
+    assert(Array.isArray(match), "There is currently no array of type Routes declared before `@NgModule`.");
   });
 });

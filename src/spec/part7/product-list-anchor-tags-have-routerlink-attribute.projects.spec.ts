@@ -76,11 +76,11 @@ describe('ProductListComponent', () => {
 
     if (ProductListFixture.nativeElement.querySelectorAll('li a').length > 0) {
       
-      since('The first list item tag is missing a `routerLink` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link')).toContain('product/1');
-      since('The second list item tag is missing a `routerLink` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link')).toContain('product/2');
+      since('The first list item tag is missing a `routerLink` attribute with the correct value.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link')).toContain('product/1');
+      since('The second list item tag is missing a `routerLink` attribute with the correct value.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link')).toContain('product/2');
 
-      since('The first list item tag is missing a `routerLinkActive` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link-active')).toContain('active');
-      since('The second list item tag is missing a `routerLinkActive` attribute with the correct value').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link-active')).toContain('active');
+      since('The first list item tag is missing a `routerLinkActive` attribute with the correct value.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[0].getAttribute('ng-reflect-router-link-active')).toContain('active');
+      since('The second list item tag is missing a `routerLinkActive` attribute with the correct value.').expect(ProductListFixture.nativeElement.querySelectorAll('li a')[1].getAttribute('ng-reflect-router-link-active')).toContain('active');
     }
 
   }));

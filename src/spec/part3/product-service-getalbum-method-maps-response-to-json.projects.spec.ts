@@ -58,9 +58,9 @@ describe('ProductService', () => {
       connection.mockRespond(new Response(options));
     });
     if (product_service.getAlbum == undefined) {
-      since('The ProductService doesn\'t have a method named `getAlbum()` yet').expect(0).toBe(1);
+      since('The ProductService doesn\'t have a method named `getAlbum()` yet.').expect(0).toBe(1);
     } else if (product_service.getAlbum != undefined && product_service.getAlbum(1) == undefined) {
-      since('The `getAlbum()` method exists, but it\'s not returning the result of a call to `this._http.get()` and passing `this._albumUrl` as a parameter').expect(0).toBe(1);
+      since('The `getAlbum()` method exists, but it\'s not returning the result of a call to `this._http.get()` and passing `this._albumUrl` as a parameter.').expect(0).toBe(1);
     } else {
       product_service.getAlbum(null).subscribe((response) => {
         since('It looks like you\'re not returning the getAlbum method\'s response as JSON.').expect(response._body).toBeUndefined();

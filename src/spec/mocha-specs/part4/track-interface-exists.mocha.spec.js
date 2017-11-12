@@ -13,6 +13,6 @@ describe('Track Interface', function() {
       assert(false, "The Track interface doesn't exist yet.")
     }
     let re = /export\s+interface\s+Track/
-    assert(Array.isArray(file.match(re)) && file.match(re) != null, "There's a `track.ts` file, but it doesn't export an interface named `Track`");
+    assert(Array.isArray(file.match(re)) && file.match(re) != null, "There's a `track.ts` file, but it doesn't export an interface named `Track`.");
   });
 });

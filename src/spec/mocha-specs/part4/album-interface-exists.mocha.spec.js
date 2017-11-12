@@ -14,6 +14,6 @@ describe('Album Interface', function() {
     }
     
     let re = /export\s+interface\s+Album/
-    assert(Array.isArray(file.match(re)) && file.match(re) != null, "There's an `album.ts` file, but it doesn't export an interface named `Album`");
+    assert(Array.isArray(file.match(re)) && file.match(re) != null, "There's an `album.ts` file, but it doesn't export an interface named `Album`.");
   });
 });

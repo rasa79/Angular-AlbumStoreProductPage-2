@@ -59,9 +59,9 @@ describe('ProductService', () => {
     });
     debugger
     if(product_service.getProducts == undefined) {
-      since('The ProductService doesn\'t have a method named `getProducts()` yet').expect(0).toBe(1);
+      since('The ProductService doesn\'t have a method named `getProducts()` yet.').expect(0).toBe(1);
     } else if(product_service.getProducts != undefined && product_service.getProducts() == undefined) {
-      since('The `getProducts()` method exists, but it\'s not returning the result of a call to `this._http.get()` and passing `this._productsUrl` as a parameter').expect(0).toBe(1);
+      since('The `getProducts()` method exists, but it\'s not returning the result of a call to `this._http.get()` and passing `this._productsUrl` as a parameter.').expect(0).toBe(1);
     } else {
       product_service.getProducts().subscribe((response) => {
         since('It looks like you\'re not returning the getProducts method\'s response as JSON.').expect(response._body).toBeUndefined();

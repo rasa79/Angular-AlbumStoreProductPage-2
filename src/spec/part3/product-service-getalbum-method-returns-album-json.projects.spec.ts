@@ -69,11 +69,11 @@ describe('ProductService', () => {
       connection.mockRespond(new Response(options));
     });
     if(product_service.getAlbum == undefined) {
-      since('The ProductService doesn\'t have a method named `getAlbum()` yet').expect(0).toBe(1);
+      since('The ProductService doesn\'t have a method named `getAlbum()` yet.').expect(0).toBe(1);
     } else if(product_service.getAlbum != undefined && product_service.getAlbum.subscribe == undefined) {
       let ps = product_service.getAlbum(null);
-      since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._albumUrl` as a parameter').expect(product_service._http._backend.connectionsArray.length).toBeGreaterThan(0);
-      since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._albumUrl` as a parameter').expect(product_service._http._backend.connectionsArray[0].request.url).toBe('../assets/album.json');        
+      since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._albumUrl` as a parameter.').expect(product_service._http._backend.connectionsArray.length).toBeGreaterThan(0);
+      since('It doesn\'t look like you\'re returning the result of calling `this._http.get()` and passing `this._albumUrl` as a parameter.').expect(product_service._http._backend.connectionsArray[0].request.url).toBe('../assets/album.json');        
     } else {
     }
   }));

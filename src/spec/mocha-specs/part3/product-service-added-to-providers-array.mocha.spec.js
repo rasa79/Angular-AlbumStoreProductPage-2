@@ -8,7 +8,7 @@ describe('AppModule', function() {
     try {
       file = fs.readFileSync(__dirname + '/../../../app/app.module.ts').toString();
     } catch (e) {
-      assert(false, "ProductService doesn't exist yet");
+      assert(false, "ProductService doesn't exist yet.");
     }
     let re = /providers\s*:\s*\[\s*ProductService\s*\]\s*\,/
     assert(Array.isArray(file.match(re)) && file.match(re) != null, "The ProductService hasn't been added to the AppModule's `providers` array yet.");

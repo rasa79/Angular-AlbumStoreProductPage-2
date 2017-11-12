@@ -19,7 +19,7 @@ describe('AppModule', function() {
       arr[i] = arr[i].trim();
     }
 
-    assert(Array.isArray(arr) && arr.includes('RouterModule'), "`RouterModule` is not currently imported from `@angular/router`");
-    assert(Array.isArray(arr) && arr.includes('Routes'), "`Routes` is not currently imported from `@angular/router`");
+    assert(Array.isArray(arr) && arr.includes('RouterModule'), "`RouterModule` is not currently imported from `@angular/router`.");
+    assert(Array.isArray(arr) && arr.includes('Routes'), "`Routes` is not currently imported from `@angular/router`.");
   });
 });
