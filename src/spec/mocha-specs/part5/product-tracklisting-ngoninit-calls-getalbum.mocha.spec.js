@@ -28,8 +28,7 @@ describe('ProductTracklisting', function() {
 
       assert(Array.isArray(match2[1].match(regex)), "The call to `getAlbum()` in ProductTracklisting's `ngOnInit()` method body isn't subscribing to the response and assigning it to `this.albumInfo`.")
     } else {
-      let re2 = /this\._productService\.getAlbum\(1\)/
-      assert(match[0].match(re2), "The ProductTracklisting `ngOnInit()` method body isn't making the correct call to the ProductService's `getAlbum` method.")
+      assert(false, "The ProductTracklisting `ngOnInit()` method body isn't making the correct call to the ProductService's `getAlbum` method.");
     }
 
   });
