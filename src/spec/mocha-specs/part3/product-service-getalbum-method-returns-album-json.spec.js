@@ -3,7 +3,7 @@ const helpers = require("../helpers");
 const { readFileSync } = require("fs");
 const { tsquery } = require("@phenomnomnominal/tsquery");
 
-describe.only("AppComponent", () => {
+describe("ProductService", () => {
   it("should create the product description component @product-description-component-created", () => {
     const fileName = "src/app/product.service.ts";
 

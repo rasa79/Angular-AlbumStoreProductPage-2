@@ -3,7 +3,7 @@ const helpers = require("../helpers");
 const { readFileSync } = require("fs");
 const { tsquery } = require("@phenomnomnominal/tsquery");
 
-describe.only("ProductService", () => {
+describe("ProductService", () => {
   it("should map the result of get request to json with rxjs map function @product-service-getalbum-method-maps-response-to-json", () => {
     const fileName = "src/app/product.service.ts";
 
