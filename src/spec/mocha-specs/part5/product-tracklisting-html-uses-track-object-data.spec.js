@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 const helpers = require("../helpers");
 
 describe("ProductTracklisting", () => {
-  it("should use ngFor to enumerate through each track in an li tag @product-tracklisting-html-uses-ngfor-to-enumerate-tracks", () => {
+  it("should use data from the albumInfo.tracks property in the HTML template @product-tracklisting-html-uses-track-object-data", () => {
     let tracklisting;
     let element;
     const productTracklistingFile = helpers.readFile(
@@ -17,6 +17,10 @@ describe("ProductTracklisting", () => {
     const productListing = parse5.serialize(productTracklistingNodes[0]);
     let $ = cheerio.load(productListing);
     const li = $("li");
+    const trackNumber = $(".track-number");
+    const trackName = $(".track-name");
+    const trackTime = $(".track-time");
+    const trackPrice = $(".price-and-buy");
 
     helpers.readFile(
       "src/app/product-tracklisting/product-tracklisting.component.html",
@@ -67,6 +71,46 @@ describe("ProductTracklisting", () => {
         .attr()
         ["*ngfor"].match(/\s*let\s*track\s*of\s*albumInfo\?.album.tracks/),
       "The `ngFor` directive doesn't have `let track of albumInfo?.album.tracks` as its value."
+    );
+
+    assert(
+      trackNumber.hasClass("track-number"),
+      "The ProductTrackinglistComponent should have a `span` with a class of `track-number`."
+    );
+
+    assert(
+      trackNumber.text().match(/\s*{{\s*track.trackNumber\s*}}\s*/),
+      "The ProductTrackinglistComponent should have a `span` with a class of `track-number` with a text of `{{track.trackNumber}}`."
+    );
+
+    assert(
+      trackName.hasClass("track-name"),
+      "The ProductTrackinglistComponent should have a `span` with a class of `track-name`."
+    );
+
+    assert(
+      trackName.text().match(/\s*{{\s*track.trackName\s*}}\s*/),
+      "The ProductTrackinglistComponent should have a `span` with a class of `track-name` with a text of `{{track.trackName}}`."
+    );
+
+    assert(
+      trackTime.hasClass("track-time"),
+      "The ProductTrackinglistComponent should have a `span` with a class of `track-time`."
+    );
+
+    assert(
+      trackTime.text().match(/\s*{{\s*track.trackLength\s*}}\s*/),
+      "The ProductTrackinglistComponent should have a `span` with a class of `track-time` with a text of `{{track.trackLength}}`."
+    );
+
+    assert(
+      trackPrice.hasClass("price-and-buy"),
+      "The ProductTrackinglistComponent should have a `span` with a class of `price-and-buy`."
+    );
+
+    assert(
+      trackPrice.text().match(/\s*{{\s*track.trackPrice\s*}}\s*/),
+      "The ProductTrackinglistComponent should have a `span` with a class of `price-and-buy` with a text of `{{track.trackPrice}}`."
     );
   });
 });
