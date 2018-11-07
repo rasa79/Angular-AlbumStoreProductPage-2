@@ -4,7 +4,7 @@ const { readFileSync } = require("fs");
 const { tsquery } = require("@phenomnomnominal/tsquery");
 
 describe("ProductService", () => {
-  it("should create the product description component @product-description-component-created", () => {
+  it("should return contents of _albumUrl when getAlbum method called @product-service-getalbum-method-returns-album-json", () => {
     const fileName = "src/app/product.service.ts";
 
     helpers.readFile(
