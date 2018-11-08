@@ -60,9 +60,8 @@ describe("ProductTracklisting", () => {
       "We shouldn't need more than one `<li></li>` element. We should be using the `ngFor` directive to generate the other list items."
     );
 
-    assert.hasAnyKeys(
-      li.attr(),
-      ["*ngfor"],
+    assert(
+      !!li.attr()["*ngfor"],
       "It doesn't look like that the ProductTracklistingComponent is using the `ngFor` directive."
     );
 

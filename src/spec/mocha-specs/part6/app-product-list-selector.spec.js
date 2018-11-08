@@ -1,7 +1,7 @@
 const assert = require("chai").assert;
 const helpers = require("../helpers");
 
-describe.only("AppComponent", () => {
+describe("AppComponent", () => {
   it("should contain the app-product-list element @app-product-list-selector", () => {
     const file = helpers.readFile("src/app/app.component.html");
     const nodes = helpers.parseFile(file);
