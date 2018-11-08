@@ -83,7 +83,7 @@ describe("ProductService", () => {
 
     const getMethod = tsquery(
       ast,
-      "MethodDeclaration:has(Identifier[name=getAlbum])  PropertyAccessExpression:has(Identifier[name=get]) "
+      "MethodDeclaration:has(Identifier[name=getAlbum])  PropertyAccessExpression:has(Identifier[name=get])"
     );
 
     assert(
@@ -123,7 +123,7 @@ describe("ProductService", () => {
 
     assert(
       mapMethod.length > 0,
-      "It doesn't look like that you're chaining a `map` method after `this._http.get(this._albumUrl)`"
+      "It doesn't look like that you're chaining a `map` method after `this._http.get(this._albumUrl)`."
     );
 
     const responseParameter = tsquery(
@@ -133,7 +133,7 @@ describe("ProductService", () => {
 
     assert(
       responseParameter.length > 0,
-      "The `map` method should be taking `response` as a parameter. "
+      "The `map` method should be taking `response` as an argument of its callback function."
     );
 
     const responseReturn = tsquery(
