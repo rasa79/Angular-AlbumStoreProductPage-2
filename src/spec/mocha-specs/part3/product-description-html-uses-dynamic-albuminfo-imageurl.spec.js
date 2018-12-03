@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 const parse5 = require("parse5");
 const helpers = require("../helpers");
 
-describe.only("ProductDescription", () => {
+describe("ProductDescription", () => {
   it("should use image url data from the albumInfo property in the HTML template @product-description-html-uses-dynamic-albuminfo-imageurl", () => {
     const productPageFile = helpers.readFile(
       "src/app/product-description/product-description.component.html"
