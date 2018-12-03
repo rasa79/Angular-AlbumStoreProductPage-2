@@ -1,13 +1,9 @@
-//should have CSS that contains a button selector @product-tracklisting-component-css4
-//should have CSS with a rule setting the line-height to 1 on the button selector @product-tracklisting-component-css4
-
 const assert = require("chai").assert;
 const helpers = require("../helpers");
 const cssom = require("cssom");
 const _ = require("lodash");
 
 describe("ProductTracklistingComponent", () => {
-
   it("should have CSS that contains a button selector @product-tracklisting-component-css4", () => {
     helpers.readFile(
       "src/app/product-tracklisting/product-tracklisting.component.css",
