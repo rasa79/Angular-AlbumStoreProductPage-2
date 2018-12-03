@@ -4,16 +4,17 @@ const cssom = require("cssom");
 const _ = require("lodash");
 
 describe("ProductTracklistingComponent", () => {
-  const productTracklistingFile = helpers.readFile(
-    "src/app/product-tracklisting/product-tracklisting.component.css"
-  );
-  const styles = cssom.parse(productTracklistingFile);
-
   it("should have CSS that contains a .tracklisting selector @product-tracklisting-component-css1", () => {
     helpers.readFile(
       "src/app/product-tracklisting/product-tracklisting.component.css",
       "The ProductTracklistingComponent CSS file doesn't exist - have you run the `ng` command to generate it yet?"
     );
+
+    const productTracklistingFile = helpers.readFile(
+      "src/app/product-tracklisting/product-tracklisting.component.css"
+    );
+
+    const styles = cssom.parse(productTracklistingFile);
 
     if (styles.cssRules.length == 0) {
       assert(
@@ -24,6 +25,11 @@ describe("ProductTracklistingComponent", () => {
   });
 
   it(`should have CSS with a rule setting the font-size to 16px and the padding-top to 10px on the .tracklisting selector @product-tracklisting-component-css1`, () => {
+    const productTracklistingFile = helpers.readFile(
+      "src/app/product-tracklisting/product-tracklisting.component.css"
+    );
+    const styles = cssom.parse(productTracklistingFile);
+
     let tracklistingRule = _.find(styles.cssRules, {
       selectorText: ".tracklisting"
     });

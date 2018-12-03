@@ -61,27 +61,26 @@ describe("ProductPage", () => {
 });
 
 describe("ProductTracklisting", () => {
-  const productTracklistingFile = helpers.readFile(
-    "src/app/product-tracklisting/product-tracklisting.component.html"
-  );
-
-  // parse html to test for tracklisting div inside Producttracklisting Component
-  let tracklisting;
-  const productTracklistingNodes = helpers.parseFile(productTracklistingFile);
-  productTracklistingNodes[0].attrs.find(
-    attr => (tracklisting = attr.value.match(/tracklisting/))
-  );
-
-  let element;
-  try {
-    element = productTracklistingNodes[0].tagName;
-  } catch (e) {
-    assert(
-      "The ProductTracklistingComponent's HTML file doesn't contain a `div` tag with a class of `tracklisting`."
-    );
-  }
-
   it("should contain the app-product-tracklisting element @product-tracklisting-html-moved", () => {
+    const productTracklistingFile = helpers.readFile(
+      "src/app/product-tracklisting/product-tracklisting.component.html"
+    );
+
+    // parse html to test for tracklisting div inside Producttracklisting Component
+    let tracklisting;
+    const productTracklistingNodes = helpers.parseFile(productTracklistingFile);
+    productTracklistingNodes[0].attrs.find(
+      attr => (tracklisting = attr.value.match(/tracklisting/))
+    );
+
+    let element;
+    try {
+      element = productTracklistingNodes[0].tagName;
+    } catch (e) {
+      assert(
+        "The ProductTracklistingComponent's HTML file doesn't contain a `div` tag with a class of `tracklisting`."
+      );
+    }
     assert(
       element !== "p",
       "It looks like you have not replaced the `<p></p>` element with a `div` tag with a class of `tracklisting`."

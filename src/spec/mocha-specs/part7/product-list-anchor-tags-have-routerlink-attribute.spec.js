@@ -3,7 +3,7 @@ const parse5 = require("parse5");
 const cheerio = require("cheerio");
 const helpers = require("../helpers");
 
-describe.only("ProductListComponent", () => {
+describe("ProductListComponent", () => {
   it("should have anchor elements that have a routerLink attribute with the correct values @product-list-anchor-tags-have-routerlink-attribute", () => {
     let li, $, element, anchorTag;
     const productListFile = helpers.readFile(
