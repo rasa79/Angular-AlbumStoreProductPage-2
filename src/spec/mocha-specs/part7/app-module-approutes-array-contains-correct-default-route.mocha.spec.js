@@ -14,7 +14,7 @@ class ProductPageComponent {
 let ar;
 
 describe('AppModule', function() {
-  it(`should have a const array named appRoutes where index 1 contains an object with the correct keys and values @app-module-approutes-array-contains-correct-default-route`, function () {
+  it(`should have a const array named appRoutes where index 2 contains an object with the correct keys and values @app-module-approutes-array-contains-correct-default-route`, function () {
     let file;
     try {
       file = fs.readFileSync(__dirname + '/../../../app/app.module.ts').toString();
